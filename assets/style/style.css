@@ -1,0 +1,84 @@
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #B2DFEE;
+	padding: 0;
+	margin: 0;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+.newTweetsCount {
+	border: 1px solid #e1e8ed;
+	height: 3em;
+	background-color: lightblue;
+	width: 100%;
+	padding: 1em;
+	text-align: center;
+	display: none;
+	cursor: pointer;
+}
+
+.tweet {
+	background-color: white;
+	border: 1px solid #e1e8ed;
+	border-radius: 5px;
+	text-align: center;
+	padding: 1em;
+	width: 100%;
+	font-family: sans-serif;
+}
+
+.main {
+	width: 100%;
+}
+
+.tweet-container {
+	border-radius: 5px;
+	min-width: 320px;
+	max-width: 800px;
+	margin: 0.5em auto;
+}
+
+.tweet-container div:hover {
+	background-color: #f5f8fa;
+}
+
+.date {
+	font-size: .875em;
+	color: gray;
+}
+
+.user {
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.user:hover {
+	color: #0084B4;
+	text-decoration: underline;
+}
+
+.main-header {
+	background-color: white;
+	box-shadow: 1px 1px 5px black;
+}
+
+.main-header ul {
+	padding: 1em;
+}
+
+.main-header ul li {
+	margin: 0 1em;
+	display: inline-block;
+}
+
+.main-header button {
+	padding: 0.5em;
+}
