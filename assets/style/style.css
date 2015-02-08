@@ -1,9 +1,15 @@
+/*
+	========================================
+	Global
+	========================================
+*/
+
 *, *:before, *:after {
 	box-sizing: border-box;
 }
 
 body {
-	background-color: #B2DFEE;
+	background-color: #C0DEED;
 	padding: 0;
 	margin: 0;
 }
@@ -13,6 +19,51 @@ ul {
 	padding: 0;
 	list-style-type: none;
 }
+
+.main {
+	width: 100%;
+}
+
+/*
+	========================================
+	Personal Tweetbox
+	========================================
+*/
+
+.tweet-box {
+	border-radius: 5px;
+	border: 1px solid #e1e8ed;
+	background-color: #0084B4;
+	width: 100%;
+	padding: 1em;
+	text-align: center;
+}
+
+.tweet-box textarea {
+	font-size: 1.25em;
+	padding: 0.25em;
+	height: 1.8em;
+	width: 85%;
+	margin: 0 1em;
+	/*border-color: 1px solid #56b4ef;*/
+	resize: none;
+}
+
+.tweet-box textarea:focus {
+	height: 6em;
+}
+
+.tweet-box button {
+	padding: 0.25em 0.5em;
+	font-size: 1.15em;
+	float:right;
+}
+
+/*
+	========================================
+	Main Tweet Content
+	========================================
+*/
 
 .newTweetsCount {
 	border: 1px solid #e1e8ed;
@@ -35,10 +86,6 @@ ul {
 	font-family: sans-serif;
 }
 
-.main {
-	width: 100%;
-}
-
 .tweet-container {
 	border-radius: 5px;
 	min-width: 320px;
@@ -46,7 +93,7 @@ ul {
 	margin: 0.5em auto;
 }
 
-.tweet-container div:hover {
+.tweet-container .tweet:hover {
 	background-color: #f5f8fa;
 }
 
@@ -65,13 +112,25 @@ ul {
 	text-decoration: underline;
 }
 
+/*
+	========================================
+	Header / Nav Styles
+	========================================
+*/
+
 .main-header {
 	background-color: white;
+	background-image: -ms-linear-gradient(top, #FFFFFF 0%, #BBBDBB 100%);
+	background-image: -moz-linear-gradient(top, #FFFFFF 0%, #BBBDBB 100%);
+	background-image: -o-linear-gradient(top, #FFFFFF 0%, #BBBDBB 100%);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #FFFFFF), color-stop(1, #BBBDBB)); 
+	background-image: -webkit-linear-gradient(top, #FFFFFF 0%, #BBBDBB 100%);
+	background-image: linear-gradient(to bottom, #FFFFFF 0%, #BBBDBB 100%);
 	box-shadow: 1px 1px 5px black;
 }
 
 .main-header ul {
-	padding: 1em;
+	padding: 0.75em;
 }
 
 .main-header ul li {
@@ -81,4 +140,16 @@ ul {
 
 .main-header button {
 	padding: 0.5em;
+}
+
+/*
+	========================================
+	Media Queries
+	========================================
+*/
+
+@media screen and (max-width: 800px) {
+	.tweet-box button {
+		float:none;
+	}
 }

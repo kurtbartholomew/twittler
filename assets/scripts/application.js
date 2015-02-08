@@ -13,8 +13,9 @@ $(document).ready(function(){
 	      	var $tweet = $('<div></div>');
 	      	$tweet.append('<span class="user"> @'+ tweet.user +':</span>')
 	      	$tweet.append('<span class="message"> '+ tweet.message +'</span>')
-	      	$tweet.append('<p class="date">Posted on '+tweet.created_at+'</p>')
+	      	$tweet.append('<p class="date">Posted '+moment(tweet.created_at).fromNow()+'</p>')
 	      	$tweet.addClass("tweet");
+            $tweet.attr('data-date',tweet.created_at);
 	      	$tweet.insertAfter(newTweetsBox);
     	}
     	if(nameFilter === undefined) { 
@@ -49,6 +50,29 @@ $(document).ready(function(){
     	displayTweets(0,streams.users[nameFilter].length-1)
     }
 
+    function writeTweet(message) {
+      var tweet = {};
+      tweet.user = visitor;
+      tweet.message = message;
+      tweet.created_at = new Date();
+      addTweet(tweet);
+    };
+
+    function addTweet(newTweet) {
+      var username = newTweet.user;
+      streams.users[username].push(newTweet);
+      streams.home.push(newTweet);
+    };
+
+    function updatePostTime() {
+        $('.tweet').each(function(i) {
+            $(this).find('.date').text("Posted " + moment($(this).data('date')).fromNow());
+        });
+    }
+
+    streams.users.visitor = [];
+    var visitor = 'visitor';
+
     // Display initial tweets
     displayTweets(numOfTweetsSeen, streams.home.length - 1);
 
@@ -69,6 +93,17 @@ $(document).ready(function(){
     	}
     });
 
+    $('.tweet-input').on('click', function() {
+        if($('.user-tweet').val() !== "") {
+            writeTweet($('.user-tweet').val());
+        }
+        $('.user-tweet').val("");
+        setNewTweetsBox();
+        displayNewTweets();
+    });
+
     // Sets page to check for new tweets every 5 seconds
     setInterval( setNewTweetsBox, 5000);
+    // Updates date on posts every minute
+    setInterval( updatePostTime, 30000);
 });
