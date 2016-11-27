@@ -1,2 +1,2 @@
 #twittler
-This is a project I completed as a student at [hackreactor](http://hackreactor.com). This project was worked on with a pair.
+Recreated interactive Twitter front end with simulated random freed
